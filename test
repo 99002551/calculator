@@ -1,0 +1,109 @@
+include <CUnit/Basic.h>
+#include <CUnit/CUnit.h>
+
+/* Modify these two lines according to the project */
+#include <calculator_operations.h>
+#define PROJECT_NAME    "Calculator"
+
+/* Prototypes for all the test functions */
+void test_add(void);
+void test_subtract(void);
+void test_multiply(void);
+void test_divide(void);
+void test_squareroot(void);
+void test_sine(void);
+void test_cosine(void);
+void test_tangent(void);
+
+/* Start of the application test */
+int main() {
+/* Note: Do not edit START*/
+  /*Initialize and setup the Test Framework */
+  if (CUE_SUCCESS != CU_initialize_registry())
+    return CU_get_error();
+  CU_pSuite suite = CU_add_suite(PROJECT_NAME, 0, 0);
+/* Note: Do not edit END */
+  
+  
+  /* Add your test functions in this format for testing*/
+  CU_add_test(suite, "add", test_add);
+  CU_add_test(suite, "subtract", test_subtract);
+  CU_add_test(suite, "multiply", test_multiply);
+  CU_add_test(suite, "divide", test_divide);
+   CU_add_test(suite, "squareroot", test_squareroot);
+    CU_add_test(suite, "sine", test_sine);
+     CU_add_test(suite, "cosine", test_cosine);
+      CU_add_test(suite, "tangent", test_tangent);
+
+
+/* Note: Do not edit START*/
+  /* Setup Test Framework to output the result to Screen */
+  CU_basic_set_mode(CU_BRM_VERBOSE);
+  
+  /* run the unit test framework*/
+  CU_basic_run_tests();
+  
+  /* Cleaning the Resources used by Unit test framework */
+  CU_cleanup_registry();
+/* Note: Do not edit END */
+  return 0;
+}
+
+/* Write all the test functions */ 
+void test_add(void) {
+  CU_ASSERT(5 == add(2, 3));
+  
+  /* Dummy fail*/
+  CU_ASSERT(300 == add(150, 200));
+}
+
+void test_subtract(void) {
+  CU_ASSERT(-5 == subtract(5,10 ));
+  
+  /* Dummy fail*/
+  CU_ASSERT(2== subtract(50, 40));
+}
+
+void test_multiply(void) {
+  CU_ASSERT(0 == multiply(1, 0));
+  
+  /* Dummy fail*/
+  CU_ASSERT(25 == multiply(4, 5));
+}
+
+
+void test_suareroot(void) {
+  CU_ASSERT(0 == divide(1, 0));
+  
+  /* Dummy fail*/
+  CU_ASSERT(6 == divide(2, 2));
+  }
+  
+  void test_squareroot(void) {
+  CU_ASSERT(2 == squareroot( 4));
+  
+  /* Dummy fail*/
+  CU_ASSERT(6 == squareroot( 9));
+ }
+ 
+ void test_sine(void) {
+  CU_ASSERT(0.8414 == sine(1));
+  
+  /* Dummy fail*/
+  CU_ASSERT(0.9000 == sine(2));
+}
+
+void test_cosine(void) {
+  CU_ASSERT(-0.9899 == cosine(3));
+  
+  /* Dummy fail*/
+  CU_ASSERT(-0.6536 == cosine(4));
+}
+
+void test_tanget(void) {
+  CU_ASSERT(1.5574 == tangent(1));
+  
+  /* Dummy fail*/
+  CU_ASSERT(-2.1850 == tangent(2));
+}
+
